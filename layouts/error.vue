@@ -18,8 +18,7 @@
 
 <script>
 export default {
-  layout: 'error',
-  props: ['error'] // you can set a custom layout for the error page
+  layout: 'error'
 }
 </script>
 

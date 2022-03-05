@@ -7,11 +7,16 @@ module.exports = {
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'plugin:wdio/recommended',
-    'plugin:nuxt/recommended',
+    'plugin:nuxt/recommended'
   ],
   plugins: [
     'wdio'
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+    'vue/multi-word-component-names': [
+      'error', {
+        ignores: ['error']
+      }]
+  }
 }
