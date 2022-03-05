@@ -18,7 +18,7 @@ export default Vue.extend({
     password: ''
   }),
   mounted () {
-    if (sessionStorage.getItem('isLoggedIn')) {
+    if (sessionStorage.getItem('isLoggedIn') === 'true') {
       this.login()
     }
   },
@@ -28,11 +28,11 @@ export default Vue.extend({
       setPwd: 'setPwd'
     }),
     login () {
-      this.setPwd(sessionStorage.getItem('isLoggedIn') ? '0090-' : this.password)
+      this.setPwd(sessionStorage.getItem('isLoggedIn') === 'true' ? '0090-' : this.password)
       this.logIn()
       if (this.$store.state.auth) {
         this.$router.push('/')
-        sessionStorage.setItem('isLoggedIn', true)
+        sessionStorage.setItem('isLoggedIn', 'true')
       }
     }
   }
