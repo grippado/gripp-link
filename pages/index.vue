@@ -1,6 +1,6 @@
 <template>
   <div id="login">
-    <p>gripp.link</p>
+    <p>gripp.link STAGE</p>
   </div>
 </template>
 
