@@ -10,6 +10,7 @@
     <ReturnHistory v-if="$store.state.isHistory" />
     <ReturnNotFound v-if="$store.state.isNotFound" />
     <ReturnDormeDorme v-if="$store.state.isDorme" />
+    <ReturnGeneral v-if="$store.state.isGeneral" />
   </div>
 </template>
 

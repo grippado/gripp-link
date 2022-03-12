@@ -2,28 +2,33 @@
 <template>
   <div class="box">
     <span
-      v-for="(hist, index) in calledHistory"
+      v-for="(items, index) in comandFinder[getInput].body"
       :key="index"
       class="f-foreground"
     >
-      {{ index }}: {{ hist }}
+      {{ items }}
     </span>
+  </div>
+</template>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import { mapGetters } from 'vuex'
+import Returns from '@/assets/js/returns'
 
 export default Vue.extend({
-  name: 'ReturnHistory',
+  name: 'ReturnGeneral',
   data () {
     return {
-      calledHistory: []
+      comandFinder: Returns
     }
   },
-  mounted () {
-    this.calledHistory = this.$store.state.history
-    console.log(this.calledHistory[0])
+  computed: {
+    ...mapGetters([
+      'getInput'
+    ])
   }
 })
 </script>
@@ -34,7 +39,10 @@ export default Vue.extend({
   flex-direction: column
   flex-grow: 1
   margin-bottom: 7px
-  span
+  span,
+  span p,
+  span a
     font-size: 2rem
     margin-bottom: 7px
+    text-decoration: none
 </style>

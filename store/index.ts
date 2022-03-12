@@ -3,7 +3,8 @@ export const state = {
   history: [],
   isHistory: false,
   isNotFound: false,
-  isDorme: false
+  isDorme: false,
+  isGeneral: false
 }
 
 export const getters = {
@@ -21,6 +22,9 @@ export const getters = {
   },
   isDorme (state: any) {
     return state.isDorme
+  },
+  isGeneral (state: any) {
+    return state.isGeneral
   }
 }
 
@@ -30,16 +34,20 @@ export const mutations = {
   },
   pushToHistoy (state: any, input: string) {
     const actualHistory = state.history
+    console.log(state.history)
     actualHistory.push(input)
     state.history = actualHistory
   },
-  setHistory (state: any, history: boolean) {
-    state.isHistory = history
+  setHistory (state: any, historie: boolean) {
+    state.isHistory = historie
   },
   setNotFound (state: any, notFOund: boolean) {
     state.isNotFound = notFOund
   },
   setDorme (state: any, DormeDorme: boolean) {
     state.isDorme = DormeDorme
+  },
+  setGeneral (state: any, GeneRal: boolean) {
+    state.isGeneral = GeneRal
   }
 }

@@ -39,7 +39,11 @@ export default Vue.extend({
     knowCommands: [
       'clear',
       'history',
-      'dorme dorme'
+      'dorme dorme',
+      'about',
+      'links',
+      'help',
+      'carrer'
     ]
   }),
 
@@ -55,26 +59,34 @@ export default Vue.extend({
   methods: {
     ...mapMutations([
       'setInput',
+      'pushToHistoy',
       'setHistory',
       'setNotFound',
-      'setDorme'
+      'setDorme',
+      'setGeneral'
     ]),
     onEnter () {
       // normalizing states
       this.setHistory(false)
       this.setNotFound(false)
       this.setDorme(false)
+      this.setGeneral(false)
       if (this.input !== '') {
         this.setInput(this.input)
+        this.pushToHistoy(this.input)
         if (this.knowCommands.includes(this.input)) {
-          if (this.input === 'clear') {
-            this.input = ''
-          }
-          if (this.input === 'history') {
-            this.setHistory(true)
-          }
-          if (this.input === 'dorme dorme') {
-            this.setDorme(true)
+          switch (this.input) {
+            case 'clear':
+              this.input = ''
+              break
+            case 'history':
+              this.setHistory(true)
+              break
+            case 'dorme dorme':
+              this.setDorme(true)
+              break
+            default:
+              this.setGeneral(true)
           }
         } else {
           this.setNotFound(true)
