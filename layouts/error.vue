@@ -1,14 +1,8 @@
 <template>
   <div id="error">
-    <h1 v-if="error.statusCode === 404">
-      404
-    </h1>
     <img src="/link-down.png" alt="gripp.link is down">
-    <h1 v-if="error.statusCode === 404">
+    <h1>
       Page not found
-    </h1>
-    <h1 v-else>
-      An error occurred
     </h1>
     <NuxtLink to="/">
       Home page
