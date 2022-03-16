@@ -72,10 +72,10 @@ export default Vue.extend({
       this.setDorme(false)
       this.setGeneral(false)
       if (this.input !== '') {
-        this.setInput(this.input)
-        this.pushToHistoy(this.input)
-        if (this.knowCommands.includes(this.input)) {
-          switch (this.input) {
+        this.setInput(this.input.toLowerCase())
+        this.pushToHistoy(this.input.toLowerCase())
+        if (this.knowCommands.includes(this.input.toLowerCase())) {
+          switch (this.input.toLowerCase()) {
             case 'clear':
               this.input = ''
               break
@@ -100,6 +100,7 @@ export default Vue.extend({
 
 <style lang="sass">
 section
+  margin: 1rem
   .line,
   .oldline
     display: flex
@@ -111,6 +112,7 @@ section
       position: relative
       margin-left: 5px
       flex-grow: 1
+      text-transform: lowercase
       i
         position: absolute
         width: 1px
@@ -135,6 +137,17 @@ section
         i
           display: none
           opacity: 0
+
+@media screen and (max-width: $mobile-break)
+  section
+    .line,
+    .oldline
+      span
+        font-size: $text-size-mobile
+      .input
+        input
+          font-size: $text-size-mobile
+
 @keyframes blink
   from
     opacity: 1

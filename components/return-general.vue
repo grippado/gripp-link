@@ -32,17 +32,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style lang="sass">
-.box
-  display: flex
-  flex-direction: column
-  flex-grow: 1
-  margin-bottom: 7px
-  span,
-  span p,
-  span a
-    font-size: $text-size
-    margin-bottom: 7px
-    text-decoration: none
-</style>

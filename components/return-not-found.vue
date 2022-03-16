@@ -12,13 +12,3 @@ export default Vue.extend({
   name: 'ReturnHelp'
 })
 </script>
-
-<style lang="sass">
-.box
-  display: flex
-  flex-direction: column
-  flex-grow: 1
-  margin-bottom: 7px
-  span
-    font-size: $text-size
-</style>

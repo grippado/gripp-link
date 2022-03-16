@@ -1,2 +1,21 @@
 @import vars
 @import reset
+
+.box
+  display: flex
+  flex-direction: column
+  flex-grow: 1
+  margin-bottom: 7px
+  span,
+  span p,
+  span a
+    font-size: $text-size
+    margin-bottom: 7px
+    text-decoration: none
+
+@media screen and (max-width: $mobile-break)
+  .box
+    span,
+    span p,
+    span a
+      font-size: $text-size-mobile

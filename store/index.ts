@@ -35,7 +35,7 @@ export const mutations = {
   pushToHistoy (state: any, input: string) {
     const actualHistory = state.history
     console.log(state.history)
-    actualHistory.push(input)
+    actualHistory.push(input.toLowerCase())
     state.history = actualHistory
   },
   setHistory (state: any, historie: boolean) {
