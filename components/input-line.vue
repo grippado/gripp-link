@@ -99,41 +99,42 @@ export default Vue.extend({
 </script>
 
 <style lang="sass">
-.line,
-.oldline
-  display: flex
-  flex-grow: 1
-  margin-bottom: 7px
-  span
-    font-size: 2rem
-  .input
-    position: relative
-    margin-left: 5px
+section
+  .line,
+  .oldline
+    display: flex
     flex-grow: 1
-    i
-      position: absolute
-      width: 1px
-      height: 100%
-      background-color: $color-foreground
-      left: 18px
-      top: 0
-      animation-name: blink
-      animation-duration: 800ms
-      animation-iteration-count: infinite
-      opacity: 1
-    input
-      background-color: $color-background
-      font-size: 2rem
-      color: $color-foreground
-      width: calc( 100% - 20px )
-      &:focus + i
-        display: none
-  &.disabled
+    margin-bottom: 7px
+    span
+      font-size: $text-size
     .input
-      input,
+      position: relative
+      margin-left: 5px
+      flex-grow: 1
       i
-        display: none
-        opacity: 0
+        position: absolute
+        width: 1px
+        height: 100%
+        background-color: $color-foreground
+        left: 18px
+        top: 0
+        animation-name: blink
+        animation-duration: 800ms
+        animation-iteration-count: infinite
+        opacity: 1
+      input
+        background-color: $color-background
+        font-size: $text-size
+        color: $color-foreground
+        width: calc( 100% - 20px )
+        &:focus + i
+          display: none
+    &.disabled
+      .input
+        input,
+        i
+          display: none
+          opacity: 0
 @keyframes blink
   from
     opacity: 1

@@ -42,7 +42,7 @@ export default Vue.extend({
   span,
   span p,
   span a
-    font-size: 2rem
+    font-size: $text-size
     margin-bottom: 7px
     text-decoration: none
 </style>

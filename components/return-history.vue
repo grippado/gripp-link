@@ -35,6 +35,6 @@ export default Vue.extend({
   flex-grow: 1
   margin-bottom: 7px
   span
-    font-size: 2rem
+    font-size: $text-size
     margin-bottom: 7px
 </style>
