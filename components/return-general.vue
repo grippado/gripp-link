@@ -6,7 +6,7 @@
       :key="index"
       class="f-foreground"
     >
-      {{ items }}
+      <span v-html="items" />
     </span>
   </div>
 </template>

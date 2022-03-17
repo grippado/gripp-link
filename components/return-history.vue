@@ -23,7 +23,6 @@ export default Vue.extend({
   },
   mounted () {
     this.calledHistory = this.$store.state.history
-    console.log(this.calledHistory[0])
   }
 })
 </script>

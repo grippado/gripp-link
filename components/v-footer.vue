@@ -1,7 +1,7 @@
 <template>
   <footer>
     <p>made with&nbsp;<a href="https://github.com/vuejs/vue">vue</a>&nbsp;|&nbsp;<a href="https://github.com/nuxt/nuxt.js">nuxt</a></p>
-    <p>color palette by <a href="https://github.com/dracula/dracula-theme">dracula</a></p>
+    <p>color palette by&nbsp;<a href="https://github.com/dracula/dracula-theme">dracula</a></p>
     <p><a href="https://gripp.link">gripp.link</a><span> © </span>2022</p>
   </footer>
 </template>

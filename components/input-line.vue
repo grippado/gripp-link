@@ -19,10 +19,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
+import Returns from '@/assets/js/returns'
 
 export default Vue.extend({
   name: 'InputLIne',
-
   props: {
     user: {
       type: String,
@@ -37,13 +37,10 @@ export default Vue.extend({
   data: () => ({
     input: '',
     knowCommands: [
+      ...Object.keys(Returns),
       'clear',
       'history',
-      'dorme dorme',
-      'about',
-      'links',
-      'help',
-      'carrer'
+      'dorme dorme'
     ]
   }),
 
@@ -54,7 +51,6 @@ export default Vue.extend({
   },
   mounted () {
     (this.$el.querySelector('.input input') as HTMLElement).focus()
-    sessionStorage.setItem('history', JSON.stringify(['']))
   },
   methods: {
     ...mapMutations([
