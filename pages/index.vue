@@ -54,6 +54,7 @@ export default Vue.extend({
 #term
   background-color: $color-background
   min-height: 94%
+  max-height: 94%
   margin: 1rem
   border-radius: .75rem
   box-shadow: 0 0 1rem 2px rgba(102,102,102,1)
@@ -80,6 +81,7 @@ export default Vue.extend({
 @media screen and (max-width: $mobile-break)
   #term
     min-height: calc(100% - 140px)
+    max-height: calc(100% - 140px)
 
 @keyframes blink
   from

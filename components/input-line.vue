@@ -102,6 +102,9 @@ export default Vue.extend({
 <style lang="sass">
 section
   margin: 1rem
+  overflow: scroll
+  &::-webkit-scrollbar
+    display: none
   .line,
   .oldline
     display: flex
@@ -141,6 +144,9 @@ section
 
 @media screen and (max-width: $mobile-break)
   section
+    max-height: 76vh
+    &::-webkit-scrollbar
+      display: none
     .line,
     .oldline
       span
