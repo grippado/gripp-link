@@ -1,6 +1,8 @@
 export const state = {
   input: 'Type your command here',
   history: [],
+  modalShow: true,
+  initialInput: true,
   isHistory: false,
   isNotFound: false,
   isDorme: false,
@@ -13,6 +15,9 @@ export const getters = {
   },
   getHistory (state: any) {
     return state.history
+  },
+  getModal (state: any) {
+    return state.modalShow
   },
   isHistory (state: any) {
     return state.isHistory
@@ -37,6 +42,9 @@ export const mutations = {
     console.log(state.history)
     actualHistory.push(input.toLowerCase())
     state.history = actualHistory
+  },
+  setInputInitial (state: any, InitialInput: boolean) {
+    state.initialInput = InitialInput
   },
   setHistory (state: any, historie: boolean) {
     state.isHistory = historie

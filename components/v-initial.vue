@@ -1,28 +1,15 @@
 <template>
-  <div
-    id="term"
-    @blur="gotFocus"
-  >
-    <div class="top-bar">
-      <span />
-      <span />
-      <span />
+  <div id="initial-overlay">
+    <div id="initial-modal">
+      <div class="top-bar">
+        <span />
+        <span />
+        <span />
+      </div>
+      <section>
+        Welcome to my terminal/personal website!
+      </section>
     </div>
-    <section>
-      <InputInitial
-        v-if="$store.state.initialInput"
-        :blur="gotFocus"
-      />
-      <InputLine
-        v-else
-        :user="user"
-        :blur="gotFocus"
-      />
-      <ReturnHistory v-if="$store.state.isHistory" />
-      <ReturnNotFound v-if="$store.state.isNotFound" />
-      <ReturnDormeDorme v-if="$store.state.isDorme" />
-      <ReturnGeneral v-if="$store.state.isGeneral" />
-    </section>
   </div>
 </template>
 
@@ -30,7 +17,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'VIndex',
+  name: 'VInitial',
   data: () => ({
     user: 'grippado'
   }),
@@ -43,20 +30,27 @@ export default Vue.extend({
 </script>
 
 <style lang="sass">
-#__nuxt
-  display: flex
-  flex-direction: column
+#initial-overlay
+  width: 100vw
   height: 100vh
-  background: $color-comment
-  #__layout
-    height: 100%
+  background: rgba($color-purple, 0.8)
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 777
 
-#term
+#initial-modal
   background-color: $color-background
   min-height: 94%
   margin: 1rem
   border-radius: .75rem
   box-shadow: 0 0 1rem 2px rgba(102,102,102,1)
+  width: 500px
+  min-height: 300px
+  position: absolute
+  top: 50%
+  left: 50%
+  margin: -150px 0 0 -250px
   .top-bar
     width: 100%
     height: 2.5rem

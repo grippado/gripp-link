@@ -1,13 +1,9 @@
 <template>
   <div class="line">
-    <span class="f-pink">{{ user }}</span>
-    <span class="f-foreground">@</span>
-    <span class="f-yellow">gripp.link</span>
-    <span class="f-foreground">:</span>
     <div class="input">
-      <span class="f-foreground">$</span>
+      <span class="f-foreground">{{ question }}</span>
       <input
-        v-model="input"
+        v-model="inputInitial"
         @keyup.enter="onEnter"
         @blur="blur"
       >
@@ -19,15 +15,10 @@
 <script lang="ts">
 import Vue from 'vue'
 import { mapGetters, mapMutations } from 'vuex'
-import Returns from '@/assets/js/returns'
 
 export default Vue.extend({
   name: 'InputLIne',
   props: {
-    user: {
-      type: String,
-      required: true
-    },
     blur: {
       type: Function,
       required: true
@@ -35,65 +26,61 @@ export default Vue.extend({
   },
 
   data: () => ({
-    input: '',
-    knowCommands: [
-      ...Object.keys(Returns),
-      'clear',
-      'history',
-      'dorme dorme',
-      'exit'
-    ]
+    question: '',
+    first_question: 'Welcome to my terminal, this is Gabriel Gripp\'s personal website, for starters, you need to accept and want to use this terminal, do you accept? (Yes/No)',
+    second_question: 'Why not? ☹️ Do you hate me? 😔 (yes/no)',
+    third_question: '😔 Please I promise it\'s a cool site, shall we check it out? (yes/no)',
+    fourty_question: 'Cool, lets go to the site! 😊',
+    fifty_question: 'Okay, but I\'m going to the site, sorry, but you other option is close the tab! 😢',
+    inputInitial: ''
   }),
 
   computed: {
     ...mapGetters([
-      'getInput'
+      'getInputInitial'
     ])
   },
   mounted () {
     (this.$el.querySelector('.input input') as HTMLElement).focus()
+    this.question = this.first_question
   },
   methods: {
     ...mapMutations([
-      'setInput',
-      'pushToHistoy',
-      'setHistory',
-      'setNotFound',
-      'setDorme',
-      'setGeneral',
       'setInputInitial'
     ]),
     onEnter () {
-      // normalizing states
-      this.setHistory(false)
-      this.setNotFound(false)
-      this.setDorme(false)
-      this.setGeneral(false)
-      if (this.input !== '') {
-        this.setInput(this.input.toLowerCase())
-        this.pushToHistoy(this.input.toLowerCase())
-        if (this.knowCommands.includes(this.input.toLowerCase())) {
-          switch (this.input.toLowerCase()) {
-            case 'clear':
-              this.input = ''
-              break
-            case 'history':
-              this.setHistory(true)
-              break
-            case 'dorme dorme':
-              this.setDorme(true)
-              break
-            case 'exit':
-              this.setInputInitial(true)
-              break
-            default:
-              this.setGeneral(true)
-          }
-        } else {
-          this.setNotFound(true)
+      if (this.inputInitial === 'yes') {
+        if (this.question === this.second_question) {
+          this.question = this.third_question
+          this.inputInitial = ''
+          return false
         }
+        this.question = this.fourty_question
+        this.setTimer()
       }
-      this.input = ''
+      if (this.inputInitial === 'no') {
+        if (this.question === this.second_question) {
+          this.question = this.fourty_question
+          this.setTimer()
+          return false
+        }
+        if (this.question === this.third_question) {
+          this.question = this.fifty_question
+          this.setTimer()
+          return false
+        }
+        this.question = this.second_question
+      }
+      this.inputInitial = ''
+    },
+    setTimer () {
+      setTimeout(() => {
+        this.setInputInitial(false)
+      }, 4000)
+      this.inputInitial = '3'
+      setTimeout(() => { this.inputInitial = '3' }, 1000)
+      setTimeout(() => { this.inputInitial = '2' }, 2000)
+      setTimeout(() => { this.inputInitial = '1' }, 3000)
     }
   }
 })
