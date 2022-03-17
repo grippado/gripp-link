@@ -33,6 +33,7 @@ const Returns: any = {
       'ls - list the files in the current directory',
       'tree - show the directory structure of the current directory',
       'pwd - show the current directory',
+      'exit - exit the terminal',
       '...',
       'Let\'s start!'
     ]

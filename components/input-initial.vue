@@ -49,7 +49,7 @@ export default Vue.extend({
       'setInputInitial'
     ]),
     onEnter () {
-      if (this.inputInitial === 'yes') {
+      if (this.inputInitial.toLowerCase() === 'yes') {
         if (this.question === this.second_question) {
           this.question = this.third_question
           this.inputInitial = ''
@@ -58,7 +58,7 @@ export default Vue.extend({
         this.question = this.fourty_question
         this.setTimer()
       }
-      if (this.inputInitial === 'no') {
+      if (this.inputInitial.toLowerCase() === 'no') {
         if (this.question === this.second_question) {
           this.question = this.fourty_question
           this.setTimer()
